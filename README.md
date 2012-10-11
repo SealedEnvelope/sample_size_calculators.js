@@ -12,3 +12,7 @@ Supports sample size calculation for:
    - Superiority trial
    - Equivalence trial
    - Non-inferiority trial
+
+# Tests
+
+Tests for the current HEAD can be [run here](http://sealedenvelope.github.com/sample_size_calculators.js/).
