@@ -42,14 +42,14 @@ $(function($) {
   });
 
   test("Adjusted for cross-overs", function() {
-    equal(
-      SE.power.adjusted(SE.power.n_bin_sup(0.05, 0.1, 90, 95), 10, 5),
-      802);
+    equal(SE.power.adjusted(SE.power.n_bin_sup(0.05, 0.1, 90, 95), 10, 5), 802);
   });
 
   test("You could say string", function() {
-    equal(SE.power.say_bin_sup(0.05, 0.1, 90, 95),
-          "1158 patients are required to have a 90% chance of detecting, as significant at the 5% level, an increase in the primary outcome measure from 90% in the control group to 95% in the experimental group.");
+    equal(
+      SE.power.say_bin_sup(0.05, 0.1, 90, 95),
+      "1158 patients are required to have a 90% chance of detecting, as significant at the 5% level, an increase in the primary outcome measure from 90% in the control group to 95% in the experimental group."
+    );
   });
 
   module("Binary equivalance calculator");
@@ -81,8 +81,10 @@ $(function($) {
   });
 
   test("You could say string", function() {
-    equal(SE.power.say_bin_eqv(0.05, 0.1, 30, 10),
-          "If there is truly no difference between the standard and experimental treatment, then 910 patients are required to be 90% sure that the limits of a two-sided 90% confidence interval will exclude a difference between the standard and experimental group of more than 10%");
+    equal(
+      SE.power.say_bin_eqv(0.05, 0.1, 30, 10),
+      "If there is truly no difference between the standard and experimental treatment (30% in both groups), then 910 patients are required to be 90% sure that the limits of a two-sided 90% confidence interval will exclude a difference between the standard and experimental group of more than 10%"
+    );
   });
 
   module("Binary non-inferiority calculator");
@@ -132,12 +134,18 @@ $(function($) {
   });
 
   test("You could say string", function() {
-    equal(SE.power.say_bin_noninf(0.05, 0.1, 70, 70, 10),
-          "If there is truly no difference between the standard and experimental treatment, then 720 patients are required to be 90% sure that the upper limit of a one-sided 95% confidence interval (or equivalently a 90% two-sided confidence interval) will exclude a difference in favour of the standard group of more than 10%");
-    equal(SE.power.say_bin_noninf(0.05, 0.1, 75, 70, 10),
-          "If there is a true difference in favour of the standard treatment of 5%, then 2726 patients are required to be 90% sure that the upper limit of a one-sided 95% confidence interval (or equivalently a 90% two-sided confidence interval) will exclude a difference in favour of the standard group of more than 10%");
-    equal(SE.power.say_bin_noninf(0.05, 0.1, 70, 75, 10),
-          "If there is a true difference in favour of the experimental treatment of 5%, then 304 patients are required to be 90% sure that the upper limit of a one-sided 95% confidence interval (or equivalently a 90% two-sided confidence interval) will exclude a difference in favour of the standard group of more than 10%");
+    equal(
+      SE.power.say_bin_noninf(0.05, 0.1, 70, 70, 10),
+      "If there is truly no difference between the standard and experimental treatment (70% in both groups), then 720 patients are required to be 90% sure that the upper limit of a one-sided 95% confidence interval (or equivalently a 90% two-sided confidence interval) will exclude a difference in favour of the standard group of more than 10%"
+    );
+    equal(
+      SE.power.say_bin_noninf(0.05, 0.1, 75, 70, 10),
+      "If there is a true difference in favour of the standard treatment of 5% (75% vs 70%), then 2726 patients are required to be 90% sure that the upper limit of a one-sided 95% confidence interval (or equivalently a 90% two-sided confidence interval) will exclude a difference in favour of the standard group of more than 10%"
+    );
+    equal(
+      SE.power.say_bin_noninf(0.05, 0.1, 70, 75, 10),
+      "If there is a true difference in favour of the experimental treatment of 5% (75% vs 70%), then 304 patients are required to be 90% sure that the upper limit of a one-sided 95% confidence interval (or equivalently a 90% two-sided confidence interval) will exclude a difference in favour of the standard group of more than 10%"
+    );
   });
 
   module("Continuous superiority calculator");
@@ -173,14 +181,19 @@ $(function($) {
   test("Adjusted for cross-overs", function() {
     equal(
       SE.power.adjusted(SE.power.n_cont_sup(0.05, 0.1, 0, 8, 40), 10, 15),
-      936);
+      936
+    );
   });
 
   test("You could say string", function() {
-    equal(SE.power.say_cont_sup(0.05, 0.1, 10, 20, 30),
-          "380 patients are required to have a 90% chance of detecting, as significant at the 5% level, an increase in the primary outcome measure from 10 in the control group to 20 in the experimental group.");
-    equal(SE.power.say_cont_sup(0.05, 0.1, 20, 15, 30),
-          "1514 patients are required to have a 90% chance of detecting, as significant at the 5% level, a decrease in the primary outcome measure from 20 in the control group to 15 in the experimental group.");
+    equal(
+      SE.power.say_cont_sup(0.05, 0.1, 10, 20, 30),
+      "380 patients are required to have a 90% chance of detecting, as significant at the 5% level, an increase in the primary outcome measure from 10 in the control group to 20 in the experimental group."
+    );
+    equal(
+      SE.power.say_cont_sup(0.05, 0.1, 20, 15, 30),
+      "1514 patients are required to have a 90% chance of detecting, as significant at the 5% level, a decrease in the primary outcome measure from 20 in the control group to 15 in the experimental group."
+    );
   });
 
   module("Continuous equivalence calculator");
@@ -210,8 +223,10 @@ $(function($) {
   });
 
   test("You could say string", function() {
-    equal(SE.power.say_cont_eqv(0.05, 0.1, 30, 10),
-          "If there is truly no difference between the standard and experimental treatment, then 390 patients are required to be 90% sure that the limits of a two-sided 90% confidence interval will exclude a difference in means of more than 10.");
+    equal(
+      SE.power.say_cont_eqv(0.05, 0.1, 30, 10),
+      "If there is truly no difference between the standard and experimental treatment, then 390 patients are required to be 90% sure that the limits of a two-sided 90% confidence interval will exclude a difference in means of more than 10."
+    );
   });
 
   module("Continuous non-inferiority calculator");
@@ -241,8 +256,9 @@ $(function($) {
   });
 
   test("You could say string", function() {
-    equal(SE.power.say_cont_noninf(0.05, 0.1, 70, 20),
-          "If there is truly no difference between the standard and experimental treatment, then 420 patients are required to be 90% sure that the lower limit of a one-sided 95% confidence interval (or equivalently a 90% two-sided confidence interval) will be above the non-inferiority limit of -20.");
+    equal(
+      SE.power.say_cont_noninf(0.05, 0.1, 70, 20),
+      "If there is truly no difference between the standard and experimental treatment, then 420 patients are required to be 90% sure that the lower limit of a one-sided 95% confidence interval (or equivalently a 90% two-sided confidence interval) will be above the non-inferiority limit of -20."
+    );
   });
-
 });
